@@ -33,22 +33,20 @@ const AlignmentView: React.FC<Sequences> = ({ sequence1, sequence2 }) => {
 
   return (
     <Box
-      ref={CopyRef}
+      ref={CopyRef}      
+      maxWidth={600}
       sx={{
         mt: 3,
         whiteSpace: "pre-wrap",
         wordBreak: "break-all",
         position: "relative",
+        margin: 2,
       }}
     >
       {/* Верхняя последовательность */}
-
       <Typography
         component="p"
-        sx={{
-          position: "absolute",
-          top: 0,
-          left: 0,
+        sx={{          
           pointerEvents: "none",
           userSelect: "none",
         }}
@@ -83,6 +81,7 @@ const AlignmentView: React.FC<Sequences> = ({ sequence1, sequence2 }) => {
           userSelect: "none",
         }}
         lineHeight={3.5}
+        fontFamily="monospace"
       >
         {sequence2.split("").map((char, index) => (
           <Typography
@@ -97,7 +96,7 @@ const AlignmentView: React.FC<Sequences> = ({ sequence1, sequence2 }) => {
               color: "transparent",
               p: 0.4,
               lineHeight: "inherit",
-              width: 2,
+              borderRadius: 8
             }}
           >
             {char}
@@ -119,11 +118,12 @@ const AlignmentView: React.FC<Sequences> = ({ sequence1, sequence2 }) => {
         sx={{
           position: "absolute",
           top: 12.5,
-          left: 0,
+          left: 0,          
+          bottom: 12.5,
           zIndex: activeLayer === "bottom" ? 2 : 1,
           display: "flex",
           flexWrap: "wrap",
-          gap: "26px 0px",
+          alignContent: "space-between",
           ...(activeLayer === "top" && { cursor: "default" })
         }}
         fontFamily="monospace"
@@ -160,11 +160,13 @@ const AlignmentView: React.FC<Sequences> = ({ sequence1, sequence2 }) => {
         sx={{
           position: "absolute",
           top: 37.5,
-          left: 0,
+          left: 0,          
+          bottom: -12,
           zIndex: activeLayer === "top" ? 2 : 1,
           display: "flex",
           flexWrap: "wrap",
-          gap: "26px 0px",
+          alignContent: "space-between",
+          
           ...(activeLayer === "bottom" && { cursor: "default" })
         }}
       >

@@ -52,8 +52,8 @@ export default function SequenceAlignmentForm({
   });
 
   const onSubmit = (data: FormData) => {
-    setSequences(data)
-    reset()
+    setSequences(data);
+    reset();
   };
 
   return (
@@ -72,7 +72,7 @@ export default function SequenceAlignmentForm({
       <Typography
         variant="subtitle1"
         gutterBottom
-        sx={{ color: "rgba(0, 0, 0, 0.55)" }}
+        sx={(theme) => ({ color: theme.palette.text.disabled })}
       >
         * В последовательностях допустимы следующие символы:
         ARNDCEQGHILKMFPSTWYV и "-"{" "}
@@ -88,7 +88,6 @@ export default function SequenceAlignmentForm({
         <TextField
           label="Первая последовательность"
           fullWidth
-          spellCheck={false}
           error={!!errors.sequence1}
           helperText={errors.sequence1?.message}
           {...register("sequence1")}
@@ -100,7 +99,6 @@ export default function SequenceAlignmentForm({
         <TextField
           label="Вторая последовательность"
           fullWidth
-          spellCheck={false}
           error={!!errors.sequence2}
           helperText={errors.sequence2?.message}
           {...register("sequence2")}
