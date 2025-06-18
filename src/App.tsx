@@ -13,7 +13,7 @@ import SequenceForm from '@components/SequenceForm'
 import AlignmentView from '@components/AlignmentView/AlignmentView'
 import AminoAcidColorLegend from '@components/Legend';
 
-import type { Sequences } from '@types'
+import type { Sequences } from '@/types'
 
 function App() {
   const prefersDark = useMediaQuery('(prefers-color-scheme: dark)')

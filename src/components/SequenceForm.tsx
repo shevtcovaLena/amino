@@ -9,7 +9,7 @@ import {
   Alert,
 } from "@mui/material";
 import { z } from "zod";
-import type { Sequences } from "@types";
+import type { Sequences } from "@/types";
 
 const AMINO_ACID_REGEX = /^[ARNDCEQGHILKMFPSTWYV-]+$/i;
 
@@ -34,7 +34,6 @@ type FormData = z.infer<typeof schema>;
 export default function SequenceAlignmentForm({
   setSequences,
 }: {
-  sequences: Sequences;
   setSequences: (value: Sequences) => void;
 }) {
   const {

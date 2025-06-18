@@ -1,8 +1,8 @@
-import { useEffect, useState, useRef, type RefObject } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import { Typography, Box, alpha } from "@mui/material";
 import { AMINO_ACID_COLORS } from "./aminoAcidColors";
-import type { Sequences } from "@types";
+import type { Sequences } from "@/types";
 import copy from "copy-to-clipboard";
 import { toast } from "react-toastify";
 
@@ -107,7 +107,7 @@ const AlignmentView: React.FC<Sequences> = ({ sequence1, sequence2 }) => {
       {/* Верхняя последовательность */}
       <Typography
         onMouseDown={(e) => {
-          const tag = e.target.nodeName;
+          const tag = (e.target as HTMLElement).nodeName;
           if (tag === "P") {
             setActiveLayer("top");
           } else if (tag === "SPAN") {
@@ -149,7 +149,7 @@ const AlignmentView: React.FC<Sequences> = ({ sequence1, sequence2 }) => {
       {/* Нижняя последовательность */}
       <Typography
         onMouseDown={(e) => {
-          const tag = e.target.nodeName;
+          const tag = (e.target as HTMLElement).nodeName;
           if (tag === "P") {
             setActiveLayer("bottom");
           } else if (tag === "SPAN") {

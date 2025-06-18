@@ -12,7 +12,7 @@ const COLOR_LEGEND = [
 const AminoAcidColorLegend = () => {
   return (
     <Box display='flex' justifyContent='center'>
-      <Stack spacing={1}>
+      <Stack spacing={1} padding={2}>
       <Typography variant="h6" gutterBottom>
         Цветовая схема выравнивания аминокислот
       </Typography>
